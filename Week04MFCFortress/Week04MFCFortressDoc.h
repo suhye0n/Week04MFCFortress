@@ -32,6 +32,11 @@ public:
 		}
 	}
 
+	void UpdateTarget() {
+		Target = rand() % 1500 + 100;
+		SetModifiedFlag();
+	}
+
 protected: // serialization에서만 만들어집니다.
 	CWeek04MFCFortressDoc() noexcept;
 	DECLARE_DYNCREATE(CWeek04MFCFortressDoc)

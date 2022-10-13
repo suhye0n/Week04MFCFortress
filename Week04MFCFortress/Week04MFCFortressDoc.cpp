@@ -145,9 +145,6 @@ void CWeek04MFCFortressDoc::Dump(CDumpContext& dc) const
 // CWeek04MFCFortressDoc 명령
 void CWeek04MFCFortressDoc::OnTarget()
 {
-	Target = rand() % 1500 + 100;
-
-	SetModifiedFlag();
-
+	UpdateTarget();
 	UpdateAllViews(NULL);
 }
