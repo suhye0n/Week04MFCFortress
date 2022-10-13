@@ -186,12 +186,12 @@ void CWeek04MFCFortressView::DrawBackground(CDC* pDC)
 void CWeek04MFCFortressView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-	CWeek04MFCFortressDoc* pDoc = GetDocument();
+	CWeek04MFCFortressDoc* pDoc = GetDocument(); // 실행 안될 시 pDoc->doc로 변경
 
 	//MessageBox(L"키가 눌렸습니다");
 	switch (nChar)
 	{
-	case VK_UP: pDoc->SetAngle(pDoc->GetAngle() + 1); break;
+	case VK_UP: pDoc->SetAngle(pDoc->GetAngle() + 1); break; // 이상할 시 1->10으로 변경
 	case VK_DOWN: pDoc->SetAngle(pDoc->GetAngle() - 1); break;
 	case VK_LEFT: pDoc->SetPower(pDoc->GetPower() - 1); break;
 	case VK_RIGHT: pDoc->SetPower(pDoc->GetPower() + 1); break;
@@ -199,7 +199,7 @@ void CWeek04MFCFortressView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	}
 
-	Invalidate();
+	Invalidate(); // view에서는 Invalidate(), doc에서는 UpdateAllViews(NULL) -> 모든 것을 다시 그려라
 
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }

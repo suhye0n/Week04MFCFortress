@@ -55,7 +55,7 @@ BOOL CWeek04MFCFortressDoc::OnNewDocument()
 
 // CWeek04MFCFortressDoc serialization
 
-void CWeek04MFCFortressDoc::Serialize(CArchive& ar)
+void CWeek04MFCFortressDoc::Serialize(CArchive& ar) // 저장과 로드 코드는 여기서!!
 {
 	if (ar.IsStoring())
 	{
@@ -146,5 +146,6 @@ void CWeek04MFCFortressDoc::Dump(CDumpContext& dc) const
 void CWeek04MFCFortressDoc::OnTarget()
 {
 	UpdateTarget();
+	//TRACE1("%d", Target);
 	UpdateAllViews(NULL);
 }
